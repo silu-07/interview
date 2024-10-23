@@ -34,10 +34,13 @@
       <div class="pill-group">
         @for (item of [
         { title: 'Home', RouterLink: '/home' },
-        { title: 'Pipes',  RouterLink: '/pipe' },
+        { title: 'Pipes', RouterLink: '/pipe' },
         { title: 'Custom Directives', RouterLink:'/custom-directives' },
-        { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-        { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
+        { title: 'Child Component', RouterLink: '/child' },
+        { title: 'Sibling Component', RouterLink: '/sibling' },
+        { title: 'Signal Component', RouterLink: '/signal' },
+        { title: 'LifeCycle Component', RouterLink: '/lifecycle' },
+        { title: 'SCSS Component', RouterLink: '/scss' },
         ]; track item.title) {
         <a class="pill" [href]="item.RouterLink" rel="noopener">
           <span>{{ item.title }}</span>
@@ -51,5 +54,18 @@
     </div>
   </div>
 </main>
+
+<app-child [parentData]="'Message From Parent Component (app.comp.html)'"></app-child>
+<app-child (messageEvent)="receiveMessage($event)"></app-child>
+<p>{{ message }}</p>
+
+<button (click)="callChildMethod()">Call Child Method</button>
+<h1>Parent Component</h1>
+<input type="text" [(ngModel)]="parentValue" placeholder="Enter a value" />
+<app-lifecycle [inputValue]="parentValue"></app-lifecycle>
+
+<app-lifecycle>
+  <p>This content is projected into the child component from parent component using AfterContentInit!</p>
+</app-lifecycle>
 
 <router-outlet></router-outlet>

@@ -1,0 +1,20 @@
+$width1: 100px;
+$width2: 500px;
+$theme: dark;
+
+@mixin simpleMixin {
+    background-color: aqua !important;
+}
+
+
+
+@if $theme == dark {
+    .container {
+        @include simpleMixin();
+        width: $width1 + $width2;
+    
+        p {
+            color: blueviolet;
+        }
+    }
+}
