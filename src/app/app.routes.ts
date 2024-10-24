@@ -7,6 +7,7 @@ import { Sibling1Component } from './components/sibling1/sibling1.component';
 import { SignalComponent } from './components/signal/signal.component';
 import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
 import { ScssComponent } from './components/scss/scss.component';
+import { RxjsComponent } from './components/rxjs/rxjs.component';
 
 export const routes: Routes = [
     {path: 'home', component:HomeComponent,title: 'Home Component'},
@@ -17,4 +18,5 @@ export const routes: Routes = [
     {path: 'signal', component:SignalComponent,title: 'Signal Component'},
     {path: 'lifecycle', component:LifecycleComponent,title: 'Life Cycle Component'},
     {path: 'scss', component:ScssComponent,title: 'SCSS Component'},
+    {path: 'rxjs', component:RxjsComponent,title: 'RXJS Component'},
 ];
