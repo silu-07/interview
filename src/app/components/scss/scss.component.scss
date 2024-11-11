@@ -1,20 +1,35 @@
-$width1: 100px;
-$width2: 500px;
-$theme: dark;
+// $width1: 100px;
+// $width2: 500px;
+// $theme: dark;
 
-@mixin simpleMixin {
-    background-color: aqua !important;
+// @mixin simpleMixin {
+//     background-color: aqua !important;
+// }
+
+
+
+// @if $theme == dark {
+//     .container {
+//         @include simpleMixin();
+//         width: $width1 + $width2;
+    
+//         p {
+//             color: blueviolet;
+//         }
+//     }
+// }
+
+$primary: red;
+
+$width1: 200px;
+$width2: 400px;
+
+@mixin font-size {
+    font-size: larger !important;
 }
 
-
-
-@if $theme == dark {
-    .container {
-        @include simpleMixin();
-        width: $width1 + $width2;
-    
-        p {
-            color: blueviolet;
-        }
-    }
+.container {
+    background-color: $primary !important;
+    width: $width1+$width2 !important;
+    @include font-size();
 }
