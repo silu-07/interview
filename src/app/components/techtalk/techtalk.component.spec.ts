@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChildComponent } from './child.component';
+import { TechtalkComponent } from './techtalk.component';
 
-describe('ChildComponent', () => {
-  let component: ChildComponent;
-  let fixture: ComponentFixture<ChildComponent>;
+describe('TechtalkComponent', () => {
+  let component: TechtalkComponent;
+  let fixture: ComponentFixture<TechtalkComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ChildComponent]
+      imports: [TechtalkComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ChildComponent);
+    fixture = TestBed.createComponent(TechtalkComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
