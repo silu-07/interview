@@ -16,8 +16,14 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.http.get('./assets/Untitled-1.json').subscribe((data) => {
-      this.jsonData = data;
-    });
+    this.http.get('assets/Untitled-1.json').subscribe(
+      (data) => {
+        console.log('Data fetched:', data); // Debugging
+        this.jsonData = data;
+      },
+      (error) => {
+        console.error('Error fetching data:', error); // Debugging
+      }
+    );
   }
 }
