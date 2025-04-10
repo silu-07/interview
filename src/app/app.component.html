@@ -6,3 +6,20 @@
     <p>Score: {{ item.data.score }}</p>
   </div>
 </div>
+
+<!-- Scroll to Top Button -->
+<button
+  class="scroll-to-top"
+  *ngIf="showScrollButton"
+  (click)="scrollToTop()"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="white"
+    width="24px"
+    height="24px"
+  >
+    <path d="M12 4l-8 8h6v8h4v-8h6z" />
+  </svg>
+</button>
