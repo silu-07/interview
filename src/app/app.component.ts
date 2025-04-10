@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.http.get('assets/Untitled-1.json').subscribe((data) => {
+    this.http.get('./assets/Untitled-1.json').subscribe((data) => {
       this.jsonData = data;
     });
   }
