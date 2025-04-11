@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<mat-dialog-content>
+  <div class="content-wrapper" #contentWrapper>
+    <p>{{ data.content }}</p>
+  </div>
+</mat-dialog-content>
+<div class="score-and-link">
+  <a [href]="data.url" target="_blank" class="visit-link">Visit URL</a>
+  <p class="score">Score: {{ data.score }}</p>
+</div>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

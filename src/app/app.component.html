@@ -1,25 +1,13 @@
 <div class="container">
   <div class="card" *ngFor="let item of jsonData?.data?.children">
-    <h2>{{ item.data.title }}</h2>
-    <p [innerHTML]="item.data.selftext_html"></p>
-    <a [href]="item.data.url" target="_blank">Visit URL</a>
-    <p>Score: {{ item.data.score }}</p>
+    <div class="card-header">
+      <h2>{{ item.data.title }}</h2>
+      <button class="expand-button" (click)="openCardPopup(item)">Open</button>
+    </div>
+    <p>{{ item.data.cleanedSelftext }}</p>
+    <div class="card-footer">
+      <a [href]="item.data.url" target="_blank" class="visit-link">Visit URL</a>
+      <p class="score">Score: {{ item.data.score }}</p>
+    </div>
   </div>
 </div>
-
-<!-- Scroll to Top Button -->
-<button
-  class="scroll-to-top"
-  *ngIf="showScrollButton"
-  (click)="scrollToTop()"
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="white"
-    width="24px"
-    height="24px"
-  >
-    <path d="M12 4l-8 8h6v8h4v-8h6z" />
-  </svg>
-</button>

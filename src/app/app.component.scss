@@ -1,3 +1,9 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -9,43 +15,79 @@
 }
 
 .card {
-  background: linear-gradient(135deg, #ffffff, #ede7f6);
-  border: 1px solid #ce93d8;
-  border-radius: 16px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  padding: 24px;
-  text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
-  word-wrap: break-word;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-  background: linear-gradient(135deg, #ede7f6, #ffffff);
-}
-
-.card h2 {
-  font-size: 1.8rem;
-  color: #4a148c;
-  margin-bottom: 16px;
-  font-weight: 700;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative; /* Make the card a positioned container */
+  max-height: 400px; /* Set a fixed maximum height for the card */
+  padding: 16px; /* Add padding for better readability */
+  border: 1px solid #ddd; /* Optional: Add a border for better visual separation */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+  background-color: #fff; /* Optional: Set a background color */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: space-between; /* Push the footer to the bottom */
+  overflow: hidden; /* Prevent content from overflowing the card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .card p {
   font-size: 1rem;
   color: #37474f;
   line-height: 1.8;
-  max-height: 320px;
-  overflow-y: auto;
-  word-wrap: break-word;
-  padding-right: 8px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 8px;
-  padding: 12px;
+  margin-bottom: 12px;
+  overflow: hidden; /* Hide overflowing content */
+  text-overflow: ellipsis; /* Add ellipsis (...) for truncated text */
+  display: -webkit-box; /* Use WebKit box model for truncation */
+  -webkit-line-clamp: 8; /* Limit to 3 lines */
+  -webkit-box-orient: vertical; /* Set the box orientation to vertical */
 }
+
+.card a.visit-link {
+  margin-top: 0px; /* Push the link to the bottom of the card */
+  color: #00796b;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.card a.visit-link:hover {
+  color: #004d40;
+  text-decoration: underline;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Slightly lift the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a deeper shadow */
+  border-color: #6a1b9a; /* Optional: Change border color on hover */
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card h2 {
+  font-size: 1rem;
+  color: #4a148c;
+  margin-top: 15px; /* Add margin at the top */
+  margin-bottom: 16px; /* Existing bottom margin */
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  word-wrap: break-word; /* Ensure long words wrap to the next line */
+  overflow-wrap: break-word; /* Break long words if necessary */
+  line-height: 1.4; /* Adjust line height for better readability */
+  max-height: calc(1.4em * 3); /* Limit the height to 3 lines based on line height */
+  overflow: hidden; /* Hide overflowing content */
+  text-overflow: ellipsis; /* Add ellipsis (...) for truncated text */
+  white-space: normal; /* Allow wrapping of text */
+  display: -webkit-box; /* Use WebKit box model for truncation */
+  -webkit-line-clamp: 3; /* Limit to 3 lines */
+  -webkit-box-orient: vertical; /* Set the box orientation to vertical */
+  background-color: #f5f5f5; /* Light gray background */
+  padding: 8px; /* Add padding for better readability */
+  border-radius: 4px; /* Optional: Add rounded corners */
+}
+
 
 .card a {
   display: inline-block;
@@ -86,4 +128,97 @@
   fill: white; /* Arrow color */
   width: 24px;
   height: 24px;
+}
+
+::ng-deep .custom-dialog-container {
+  overflow: hidden; /* Remove scrollbars */
+}
+
+::ng-deep mat-dialog-content {
+  padding: 16px;
+  overflow: hidden; /* Remove scrollbars */
+}
+
+button {
+  background-color: #4a148c;
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+button:hover {
+  background-color: #6a1b9a;
+}
+
+.expand-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #842eb9; /* Lighter shade of purple */
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.expand-button:hover {
+  background-color: #a66eb6; /* Even lighter shade for hover effect */
+}
+
+mat-dialog-content {
+  padding: 16px;
+  max-height: calc(90vh - 120px); /* Adjust height to leave space for the score and actions */
+  overflow-y: auto; /* Enable scrolling for content if needed */
+}
+
+.content-wrapper {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.6;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between; /* Space between "Visit URL" and score */
+  align-items: center; /* Align items vertically */
+  margin-top: auto; /* Push the footer to the bottom of the card */
+  padding: 8px 0; /* Optional: Add some padding for better spacing */
+}
+
+.visit-link {
+  color: #00796b;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.visit-link:hover {
+  color: #004d40;
+  text-decoration: underline;
+}
+
+.score {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #37474f;
+  margin-left: 16px; /* Add spacing between the score and the link */
+}
+
+::ng-deep .mat-typography h2 {
+  margin-top: 10px;
+}
+
+::ng-deep .mat-typography p {
+  margin: 10px;
 }
